@@ -1,0 +1,54 @@
+//For a given array of size N, reverse every sub-array formed by
+//consecutive K element.
+// Note : Don't use extra space.
+// Examples :
+// Input : N = 9
+// arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+// k = 3
+// Output : arr = [ 3, 2, 1, 6, 5, 4, 9, 8, 7 ]
+//
+// Input : N = 8
+// arr = [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+// k = 5
+// Output : arr = [ 5, 4, 3, 2, 1, 8, 7 ]
+//
+// Input : N = 8
+// arr = [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+// k = 10
+// Output : arr = [ 8, 7, 6, 5, 4, 3, 2, 1 ] 
+package class1;
+import java.util.*;
+public class SubArray {
+	public static void main(String[] args) {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter the array");
+		int n=s.nextInt();
+		int arr[]= new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=s.nextInt();
+		}
+		System.out.println("enter the K value");
+		int k= s.nextInt();
+		for(int i=0;i<n;i=i+k)
+		{
+			int start=i;
+			int end=i+k-1;
+			int r= end<n-1?end:n-1;
+			while(start<=r)
+			{
+				int temp=arr[start];
+				arr[start]=arr[r];
+				arr[r]=temp;
+				start++;
+				end--;
+			}
+		}
+			for(int val:arr)
+			{
+				System.out.print(val+" ");
+			}
+
+	}
+
+}
